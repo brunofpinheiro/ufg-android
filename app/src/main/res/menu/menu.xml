@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_filter_products"
+        android:title="@string/menu_filter_products"
+        android:icon="@drawable/baseline_filter_list_black_18dp"
+        />
+</menu>

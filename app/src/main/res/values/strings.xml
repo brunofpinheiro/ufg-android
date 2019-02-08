@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BestBuy Catalog</string>
+    <string name="our_featured_offers">Our featured offers</string>
+    <string name="menu_filter_products">Filter products</string>
+</resources>
