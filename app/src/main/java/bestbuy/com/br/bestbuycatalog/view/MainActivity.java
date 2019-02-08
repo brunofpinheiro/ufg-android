@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                             else
                                 jsonReader.skipValue(); // Skip values of other keys
 
+
                             price = "5.00";
                             shipping = "FREE SHIPPING";
                             image = R.drawable.beats_solo3;
