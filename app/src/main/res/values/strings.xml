@@ -2,4 +2,21 @@
     <string name="app_name">BestBuy Catalog</string>
     <string name="our_featured_offers">Our featured offers</string>
     <string name="menu_filter_products">Filter products</string>
+    <string name="categories">Categories</string>
+    <string name="search">Search</string>
+    <string name="btn_review">Write a review</string>
+    <string name="name">Name</string>
+    <string name="location">Location: </string>
+    <string name="overall_rating">Overall Rating</string>
+    <string name="my_review">My Review</string>
+    <string name="btn_submit_review">Submit</string>
+
+    <!--CATEGORIES-->
+    <string name="desktop">Desktop &amp; All-in-One Computers</string>
+    <string name="headphones">Headphones</string>
+    <string name="tablets">Tablets</string>
+    <string name="laptops">Laptops</string>
+    <string name="tvs">TVs</string>
+
+
 </resources>

@@ -1,8 +1,11 @@
 package bestbuy.com.br.bestbuycatalog.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,11 +25,12 @@ public class ClickedItemActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON +
                 WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
-        TextView mName        = (TextView) findViewById(R.id.product_name);
-        TextView mDescription = (TextView) findViewById(R.id.product_description);
-        TextView mPrice       = (TextView) findViewById(R.id.product_price);
-        TextView mShipping    = (TextView) findViewById(R.id.product_shipping);
-        ImageView mImage      = (ImageView) findViewById(R.id.product_image);
+        TextView  mName        = findViewById(R.id.product_name);
+        TextView  mDescription = findViewById(R.id.product_description);
+        TextView  mPrice       = findViewById(R.id.product_price);
+        TextView  mShipping    = findViewById(R.id.product_shipping);
+        ImageView mImage       = findViewById(R.id.product_image);
+        Button    mReview      = findViewById(R.id.btn_review);
 
         Bundle  bundle  = this.getIntent().getExtras();
         Product product = (Product) bundle.getSerializable("PRODUCTS");
@@ -36,5 +40,18 @@ public class ClickedItemActivity extends AppCompatActivity {
         mPrice.setText(product.getPrice());
         mShipping.setText(product.getShipping());
         mImage.setImageResource(product.getImage());
+
+        mReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnReviewAction();
+            }
+        });
     }
+
+    private void btnReviewAction() {
+        Intent intent = new Intent(ClickedItemActivity.this, ReviewActivity.class);
+        startActivity(intent);
+    }
+
 }
