@@ -10,6 +10,8 @@
     <string name="overall_rating">Overall Rating</string>
     <string name="my_review">My Review</string>
     <string name="btn_submit_review">Submit</string>
+    <string name="sku">SKU</string>
+    <string name="msg_no_reviews">No reviews for this product</string>
 
     <!--CATEGORIES-->
     <string name="desktop">Desktop &amp; All-in-One Computers</string>

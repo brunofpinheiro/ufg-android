@@ -3,7 +3,7 @@ package bestbuy.com.br.bestbuycatalog.model;
 import java.io.Serializable;
 
 
-public class Product implements Serializable {
+public class ProductTO implements Serializable {
 
     private String name;
     private String description;
@@ -11,7 +11,7 @@ public class Product implements Serializable {
     private String shipping;
     private int    image;
 
-    public Product(String name, String description, String price, String shipping, int imagem) {
+    public ProductTO(String name, String description, String price, String shipping, int imagem) {
         this.name        = name;
         this.description = description;
         this.price       = price;

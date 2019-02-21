@@ -1,6 +1,6 @@
 package bestbuy.com.br.bestbuycatalog.model;
 
-public class GpsLocation {
+public class GpsLocationTO {
     private String address    = "";
     private String city       = "";
     private String state      = "";

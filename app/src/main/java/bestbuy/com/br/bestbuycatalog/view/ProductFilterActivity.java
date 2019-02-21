@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,7 +18,7 @@ import java.util.List;
 
 import bestbuy.com.br.bestbuycatalog.R;
 import bestbuy.com.br.bestbuycatalog.adapter.ProductAdapter;
-import bestbuy.com.br.bestbuycatalog.model.Product;
+import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 import bestbuy.com.br.bestbuycatalog.network.ApiHelper;
 
 public class ProductFilterActivity extends AppCompatActivity {
@@ -29,8 +28,8 @@ public class ProductFilterActivity extends AppCompatActivity {
     private String        searchUrlBegin = "https://api.bestbuy.com/v1/products(customerReviewAverage>=4&(categoryPath.id=";
     private String        searchUrlEnd   = "))?apiKey=JRljNcnI9lWoA6w92awbhEmF&sort=sku.asc&show=sku,name,regularPrice," +
                                            "salePrice,onSale,freeShipping,image,longDescription&pageSize=20&format=json;";
-    private List<Product> products       = null;
-    private ListView      mList;
+    private List<ProductTO> products = null;
+    private ListView        mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

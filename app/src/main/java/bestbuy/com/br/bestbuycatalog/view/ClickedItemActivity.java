@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import bestbuy.com.br.bestbuycatalog.R;
-import bestbuy.com.br.bestbuycatalog.model.Product;
+import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 
 public class ClickedItemActivity extends AppCompatActivity {
 
@@ -33,13 +33,15 @@ public class ClickedItemActivity extends AppCompatActivity {
         Button    mReview      = findViewById(R.id.btn_review);
 
         Bundle  bundle  = this.getIntent().getExtras();
-        Product product = (Product) bundle.getSerializable("PRODUCTS");
+        ProductTO productTO = (ProductTO) bundle.getSerializable("PRODUCTS");
 
-        mName.setText(product.getName());
-        mDescription.setText(product.getDescription());
-        mPrice.setText(product.getPrice());
-        mShipping.setText(product.getShipping());
-        mImage.setImageResource(product.getImage());
+        if (productTO != null) {
+            mName.setText(productTO.getName());
+            mDescription.setText(productTO.getDescription());
+            mPrice.setText(productTO.getPrice());
+            mShipping.setText(productTO.getShipping());
+            mImage.setImageResource(productTO.getImage());
+        }
 
         mReview.setOnClickListener(new View.OnClickListener() {
             @Override

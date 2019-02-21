@@ -9,15 +9,15 @@ import android.widget.TextView;
 
 import java.util.List;
 import bestbuy.com.br.bestbuycatalog.R;
-import bestbuy.com.br.bestbuycatalog.model.Product;
+import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 
 
 public class ProductAdapter extends BaseAdapter {
 
-    private final List<Product> products;
+    private final List<ProductTO> products;
     private final Activity act;
 
-    public ProductAdapter(List<Product> products, Activity act) {
+    public ProductAdapter(List<ProductTO> products, Activity act) {
         this.products = products;
         this.act = act;
     }

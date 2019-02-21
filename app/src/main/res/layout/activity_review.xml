@@ -20,11 +20,31 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="@string/sku"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/sku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123456789"
+        android:textSize="18dp"
+        android:gravity="center_vertical|end"
+        />
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="@string/location"
+        android:textSize="18sp"
         android:textStyle="bold"
         />
 
@@ -32,16 +52,17 @@
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/name"
         android:layout_marginTop="10dp"
-        />
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:textColorLink="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/textview1"
@@ -66,14 +87,14 @@
         android:id="@+id/editReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/my_review"
-        android:layout_marginTop="15dp"
         android:inputType="textMultiLine"
-        />
+        android:textColorLink="@color/colorPrimary" />
 
     <Button
-        android:id="@+id/sendReview"
+        android:id="@+id/submitReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_submit_review"
@@ -81,5 +102,22 @@
         android:layout_marginTop="20dp"
         />
 
+    <TextView
+        android:id="@+id/msgNoReviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/msg_no_reviews"
+        android:textSize="18dp"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:visibility="gone"
+        />
+
+    <ListView
+        android:id="@+id/lstReviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        />
 
 </LinearLayout>

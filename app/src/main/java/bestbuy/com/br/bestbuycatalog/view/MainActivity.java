@@ -18,11 +18,11 @@ import java.util.ArrayList;
 
 import bestbuy.com.br.bestbuycatalog.adapter.ProductAdapter;
 import bestbuy.com.br.bestbuycatalog.R;
-import bestbuy.com.br.bestbuycatalog.model.Product;
+import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 import bestbuy.com.br.bestbuycatalog.network.ApiHelper;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<Product> products = null;
+    private ArrayList<ProductTO> products = null;
     private ListView           mList    = null;
 
     @Override

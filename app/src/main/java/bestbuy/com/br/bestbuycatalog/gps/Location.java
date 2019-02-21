@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import bestbuy.com.br.bestbuycatalog.model.GpsLocation;
+import bestbuy.com.br.bestbuycatalog.model.GpsLocationTO;
 
 
 public class Location {
@@ -26,7 +26,7 @@ public class Location {
 
     private Context         context;
     private Activity        activity;
-    public  GpsLocation     gpsLocation;
+    public GpsLocationTO gpsLocationTO;
     private LocationManager locationManager;
 
     public Location(Context context, Activity activity) {
@@ -66,12 +66,12 @@ public class Location {
             Geocoder geocoder = new Geocoder(context, Locale.getDefault());
             List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
             if (addresses != null && addresses.size() > 0) {
-                gpsLocation = new GpsLocation();
-                gpsLocation.setAddress(addresses.get(0).getAddressLine(0)); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-                gpsLocation.setCity(addresses.get(0).getLocality());
-                gpsLocation.setState(addresses.get(0).getAdminArea());
-                gpsLocation.setCountry(addresses.get(0).getCountryName());
-                gpsLocation.setPostalCode(addresses.get(0).getPostalCode());
+                gpsLocationTO = new GpsLocationTO();
+                gpsLocationTO.setAddress(addresses.get(0).getAddressLine(0)); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+                gpsLocationTO.setCity(addresses.get(0).getLocality());
+                gpsLocationTO.setState(addresses.get(0).getAdminArea());
+                gpsLocationTO.setCountry(addresses.get(0).getCountryName());
+                gpsLocationTO.setPostalCode(addresses.get(0).getPostalCode());
             }
         } catch (IOException e) {
             e.printStackTrace();

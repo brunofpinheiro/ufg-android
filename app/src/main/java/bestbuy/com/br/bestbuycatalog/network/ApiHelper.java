@@ -14,16 +14,16 @@ import java.util.ArrayList;
 import javax.net.ssl.HttpsURLConnection;
 
 import bestbuy.com.br.bestbuycatalog.R;
-import bestbuy.com.br.bestbuycatalog.model.Product;
+import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 
 public class ApiHelper {
-    private Product            product          = null;
+    private ProductTO productTO = null;
     private String             name             = "";
     private String             description      = "";
     private String             price            = "";
     private String             shipping         = "";
     private int                image            = 0;
-    private ArrayList<Product> productsFromJSON = null;
+    private ArrayList<ProductTO> productsFromJSON = null;
 
 
     /**
@@ -32,7 +32,7 @@ public class ApiHelper {
      * @param endPoint
      * @return
      */
-    public ArrayList<Product> getProducts(final Context context, final URL endPoint) {
+    public ArrayList<ProductTO> getProducts(final Context context, final URL endPoint) {
         productsFromJSON = new ArrayList<>();
 
         AsyncTask.execute(new Runnable() {
@@ -67,8 +67,8 @@ public class ApiHelper {
                             image = R.drawable.beats_solo3;
 
                         }
-                        product = new Product(name, description, price, shipping, image);
-                        productsFromJSON.add(product);
+                        productTO = new ProductTO(name, description, price, shipping, image);
+                        productsFromJSON.add(productTO);
 
                         jsonReader.close();
                     } else {

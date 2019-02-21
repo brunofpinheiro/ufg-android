@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/reviewListReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/reviewListName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reviewListReview"
+        />
+
+    <TextView
+        android:id="@+id/reviewListRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/reviewListName"
+        android:layout_alignBottom="@id/reviewListName"
+        />
+
+    <TextView
+        android:id="@+id/reviewListLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/reviewListRating"
+        android:layout_alignBottom="@id/reviewListRating"
+        />
+
+    <TextView
+        android:id="@+id/txtDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/reviewListName"
+        android:layout_marginTop="5dp"
+        android:background="@color/horizontal_divider"
+        />
+
+</RelativeLayout>
