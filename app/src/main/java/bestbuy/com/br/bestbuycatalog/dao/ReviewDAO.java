@@ -50,17 +50,17 @@ public class ReviewDAO {
         db = banco.getReadableDatabase();
         cursor = db.query(Database.TABLE, columns, where, null, null, null, null);
 
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            reviewTO = new ReviewTO();
+        if (cursor.moveToFirst()) {
+            do {
+                reviewTO = new ReviewTO();
+                reviewTO.setSku(cursor.getString(cursor.getColumnIndex(Database.SKU)));
+                reviewTO.setLocation(cursor.getString(cursor.getColumnIndex(Database.LOCATION)));
+                reviewTO.setName(cursor.getString(cursor.getColumnIndex(Database.NAME)));
+                reviewTO.setRating(cursor.getInt(cursor.getColumnIndex(Database.RATING)));
+                reviewTO.setReview(cursor.getString(cursor.getColumnIndex(Database.REVIEW)));
 
-            reviewTO.setSku(cursor.getString(cursor.getColumnIndex(Database.SKU)));
-            reviewTO.setLocation(cursor.getString(cursor.getColumnIndex(Database.LOCATION)));
-            reviewTO.setName(cursor.getString(cursor.getColumnIndex(Database.NAME)));
-            reviewTO.setRating(cursor.getInt(cursor.getColumnIndex(Database.RATING)));
-            reviewTO.setReview(cursor.getString(cursor.getColumnIndex(Database.REVIEW)));
-
-            reviews.add(reviewTO);
+                reviews.add(reviewTO);
+            } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
