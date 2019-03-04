@@ -22,13 +22,12 @@ import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 import bestbuy.com.br.bestbuycatalog.network.ApiHelper;
 
 public class ProductFilterActivity extends AppCompatActivity {
-    private Spinner       mCategories;
-    private Button        mBtnSearch;
-    private String        categoryID;
-    private String        searchUrlBegin = "https://api.bestbuy.com/v1/products(customerReviewAverage>=4&(categoryPath.id=";
-    private String        searchUrlEnd   = "))?apiKey=JRljNcnI9lWoA6w92awbhEmF&sort=sku.asc&show=sku,name,regularPrice," +
-                                           "salePrice,onSale,freeShipping,image,longDescription&pageSize=20&format=json;";
-    private List<ProductTO> products = null;
+    private Spinner         mCategories;
+    private Button          mBtnSearch;
+    private String          categoryID;
+    private String          searchUrlBegin = "";
+    private String          searchUrlEnd   = "";
+    private List<ProductTO> products       = null;
     private ListView        mList;
 
     @Override
@@ -46,6 +45,10 @@ public class ProductFilterActivity extends AppCompatActivity {
         categories.add(getResources().getString(R.string.tablets));
         categories.add(getResources().getString(R.string.laptops));
         categories.add(getResources().getString(R.string.tvs));
+
+        searchUrlBegin = "https://api.bestbuy.com/v1/products(customerReviewAverage>=4&(categoryPath.id=";
+        searchUrlEnd   = "))?apiKey=" + getResources().getString(R.string.api_key) + "&sort=sku.asc&show=sku,name,regularPrice," +
+                        "salePrice,onSale,freeShipping,image,longDescription&pageSize=20&format=json";
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -86,8 +89,7 @@ public class ProductFilterActivity extends AppCompatActivity {
             categoryID = "abcat0101000";
 
         ApiHelper apiHelper = new ApiHelper();
-//        products = apiHelper.getProducts(getApplicationContext(), new URL(searchUrlBegin + categoryID + searchUrlEnd));
-        products = apiHelper.getProducts(getApplicationContext(), new URL("https://api.github.com/"));
+        products = apiHelper.getProducts(getApplicationContext(), new URL(searchUrlBegin + categoryID + searchUrlEnd));
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -102,10 +104,6 @@ public class ProductFilterActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Item click action method
-     * @param position
-     */
     private void itemClickAction(int position) {
         Intent intent = new Intent(ProductFilterActivity.this, ClickedItemActivity.class);
         intent.putExtra("PRODUCTS", products.get(position));

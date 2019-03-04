@@ -5,23 +5,35 @@ import java.io.Serializable;
 
 public class ProductTO implements Serializable {
 
-    private String name;
-    private String description;
-    private String price;
-    private String shipping;
-    private int    image;
+    private String  sku;
+    private String  name;
+    private String  description;
+    private String  price;
+    private Boolean freeShipping;
+    private String  image;
 
-    public ProductTO(String name, String description, String price, String shipping, int imagem) {
-        this.name        = name;
-        this.description = description;
-        this.price       = price;
-        this.shipping    = shipping;
-        this.image       = imagem;
+    public ProductTO(String sku, String name, String description, String price, Boolean freeShipping, String image) {
+        this.sku          = sku;
+        this.name         = name;
+        this.description  = description;
+        this.price        = price;
+        this.freeShipping = freeShipping;
+        this.image        = image;
     }
+
+
 
     /**
      * GETTERS AND SETTERS
      */
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
     public String getName() {
         return name;
     }
@@ -46,19 +58,19 @@ public class ProductTO implements Serializable {
         this.price = price;
     }
 
-    public String getShipping() {
-        return shipping;
+    public Boolean getFreeShipping() {
+        return freeShipping;
     }
 
-    public void setShipping(String shipping) {
-        this.shipping = shipping;
+    public void setFreeShipping(Boolean freeShipping) {
+        this.freeShipping = freeShipping;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

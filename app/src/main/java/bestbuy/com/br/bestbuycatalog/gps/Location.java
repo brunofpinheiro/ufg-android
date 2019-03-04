@@ -26,7 +26,7 @@ public class Location {
 
     private Context         context;
     private Activity        activity;
-    public GpsLocationTO gpsLocationTO;
+    public  GpsLocationTO   gpsLocationTO;
     private LocationManager locationManager;
 
     public Location(Context context, Activity activity) {

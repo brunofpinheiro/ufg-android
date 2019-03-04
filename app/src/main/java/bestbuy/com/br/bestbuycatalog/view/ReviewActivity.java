@@ -40,7 +40,7 @@ public class ReviewActivity extends AppCompatActivity {
         if (loc.gpsLocationTO != null)
             mLocation.setText(loc.gpsLocationTO.getCity());
         else
-            mLocation.setText("Goiânia"); //usado pra testar no emulador
+            mLocation.setText(getResources().getText(R.string.no_location));
 
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +58,9 @@ public class ReviewActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Envia o review.
+     */
     private void submitAction() {
         ReviewDAO reviewDAO = new ReviewDAO(ReviewActivity.this);
         ReviewTO reviewTO   = new ReviewTO();
@@ -82,6 +85,9 @@ public class ReviewActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Limpa os campos.
+     */
     private void resetFields() {
         TextView  mLocation = findViewById(R.id.location);
         EditText  mName     = findViewById(R.id.editName);
@@ -94,12 +100,15 @@ public class ReviewActivity extends AppCompatActivity {
         mReview.setText("");
     }
 
+    /**
+     * Busca os reviews do produto
+     */
     private void getProductReviews() {
         ReviewDAO reviewDAO = new ReviewDAO(ReviewActivity.this);
         TextView  mSku      = findViewById(R.id.sku);
         reviews             = new ArrayList<>();
 
+        mSku.setText(getIntent().getStringExtra("SKU"));
         reviews = reviewDAO.getReviews(mSku.getText().toString());
     }
-
 }

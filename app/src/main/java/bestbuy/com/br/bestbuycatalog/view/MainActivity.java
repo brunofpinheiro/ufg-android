@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -23,7 +22,7 @@ import bestbuy.com.br.bestbuycatalog.network.ApiHelper;
 
 public class MainActivity extends AppCompatActivity {
     private ArrayList<ProductTO> products = null;
-    private ListView           mList    = null;
+    private ListView             mList    = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mList = findViewById(R.id.lstProducts);
-
-        //pra poder iniciar a activity mesmo com a tela do telefone travada.
-        //USAR ISSO SÓ DURANTE O DESENVOLVIMENTO
-        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED +
-                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON +
-                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -46,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         try {
+            String url = "https://api.bestbuy.com/v1/products(bestSellingRank<=50)?apiKey=" + getResources().getString(R.string.api_key) +
+                    "&sort=sku.asc&show=sku,name,regularPrice,salePrice,onSale,freeShipping,image,longDescription&pageSize=20&format=json";
             ApiHelper apiHelper = new ApiHelper();
-            products = apiHelper.getProducts(getApplicationContext(), new URL("https://api.github.com/"));
+            products = apiHelper.getProducts(getApplicationContext(), new URL(url));
             AsyncTask.execute(new Runnable() {
                 @Override
                 public void run() {

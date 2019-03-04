@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">BestBuy Catalog</string>
     <string name="our_featured_offers">Our featured offers</string>
     <string name="menu_filter_products">Filter products</string>
@@ -12,6 +13,9 @@
     <string name="btn_submit_review">Submit</string>
     <string name="sku">SKU</string>
     <string name="msg_no_reviews">No reviews for this product</string>
+    <string name="free_shipping">Free shipping</string>
+    <string name="see_estimates">See estimates</string>
+    <string name="no_location">Impossible to define your location</string>
 
     <!--CATEGORIES-->
     <string name="desktop">Desktop &amp; All-in-One Computers</string>
@@ -20,5 +24,7 @@
     <string name="laptops">Laptops</string>
     <string name="tvs">TVs</string>
 
+    <!-- BEST BUY API KEY -->
+    <string name="api_key">NBssqpvfqFCAdpgE2AnUbOGG</string>
 
 </resources>

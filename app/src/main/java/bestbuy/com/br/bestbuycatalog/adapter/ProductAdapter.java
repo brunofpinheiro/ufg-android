@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 import bestbuy.com.br.bestbuycatalog.R;
 import bestbuy.com.br.bestbuycatalog.model.ProductTO;
@@ -15,7 +17,7 @@ import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 public class ProductAdapter extends BaseAdapter {
 
     private final List<ProductTO> products;
-    private final Activity act;
+    private final Activity        act;
 
     public ProductAdapter(List<ProductTO> products, Activity act) {
         this.products = products;
@@ -42,16 +44,17 @@ public class ProductAdapter extends BaseAdapter {
         View view = act.getLayoutInflater().inflate(R.layout.product_list_item, parent, false);
 
         //pegando as referências das Views
-        TextView  name     = view.findViewById(R.id.product_list_item_name);
-        TextView  shipping = view.findViewById(R.id.product_list_item_shipping);
-        TextView  price    = view.findViewById(R.id.product_list_item_price);
-        ImageView image    = view.findViewById(R.id.product_list_item_image);
+        TextView  mName     = view.findViewById(R.id.product_list_item_name);
+        TextView  mShipping = view.findViewById(R.id.product_list_item_shipping);
+        TextView  mPrice    = view.findViewById(R.id.product_list_item_price);
+        ImageView mImage    = view.findViewById(R.id.product_list_item_image);
 
         //populando as Views
-        name.setText(products.get(position).getName());
-        shipping.setText(products.get(position).getShipping());
-        price.setText(products.get(position).getPrice());
-        image.setImageResource(products.get(position).getImage());
+        mName.setText(products.get(position).getName());
+        mShipping.setText(products.get(position).getFreeShipping() ? "Free Shipping"  : "See estimates for shipping");
+        mPrice.setText(products.get(position).getPrice());
+        if (!products.get(position).getImage().isEmpty())
+            Picasso.get().load(products.get(position).getImage()).into(mImage);
 
         return view;
     }

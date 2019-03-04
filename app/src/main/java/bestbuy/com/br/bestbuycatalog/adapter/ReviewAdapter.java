@@ -4,20 +4,18 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import bestbuy.com.br.bestbuycatalog.R;
-import bestbuy.com.br.bestbuycatalog.model.ProductTO;
 import bestbuy.com.br.bestbuycatalog.model.ReviewTO;
 
 
 public class ReviewAdapter extends BaseAdapter {
 
     private final List<ReviewTO> reviews;
-    private final Activity act;
+    private final Activity       act;
 
     public ReviewAdapter(List<ReviewTO> reviews, Activity act) {
         this.reviews = reviews;
@@ -52,7 +50,7 @@ public class ReviewAdapter extends BaseAdapter {
         //populando as Views
         review.setText(reviews.get(position).getReview());
         name.setText(reviews.get(position).getName());
-        rating.setText(" - " + reviews.get(position).getRating());
+        rating.setText(" - " + reviews.get(position).getRating() + " stars ");
         location.setText(" (" + reviews.get(position).getLocation() + ")");
 
         return view;
